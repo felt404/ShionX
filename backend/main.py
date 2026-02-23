@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
 
-app = FastAPI(title="ShionX", version="0.1.0")
+from backend.api.routes import router as api_router
+from backend.api.websocket import router as ws_router
 
-# CORS configuration
+app = FastAPI(title="ShionX", version="0.2.0")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -14,15 +15,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Health check endpoint
+app.include_router(api_router)
+app.include_router(ws_router)
+
+
 @app.get("/api/health")
 async def health_check():
     return {"status": "healthy", "service": "ShionX"}
 
-# Mount static frontend files
-if os.path.exists("frontend"):
-    app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
+
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
