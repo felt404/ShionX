@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+dist/
+
+# Virtual environment directories
+venv/
+ENV/
+env.bak/
+
+# Test and coverage reports
+htmlcov/
+*.cover
+*.py,cover
+.coverage
+*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+# MyPy
+.mypy_cache/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
