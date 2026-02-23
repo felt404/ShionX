@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 websockets
-torch
 ctransformers
 faster-whisper
 numpy

@@ -1,0 +1,60 @@
+:root {
+  color-scheme: dark;
+  --bg: #151821;
+  --panel: #1f2430;
+  --text: #e6e9ef;
+  --accent: #6cb6ff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header { display: flex; justify-content: space-between; align-items: center; }
+main { display: grid; gap: 1rem; }
+section {
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.messages {
+  min-height: 180px;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #333a4d;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.message { margin-bottom: 0.5rem; }
+.message.user { color: #ffd580; }
+.message.assistant { color: #b4f0a7; }
+textarea, select, button {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #3b435a;
+  background: #11151f;
+  color: var(--text);
+  padding: 0.6rem;
+}
+.btn { cursor: pointer; margin-top: 0.5rem; }
+.status { display: flex; align-items: center; gap: 0.5rem; }
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cc4b4b;
+}
+.status-indicator.connected { background: #48c774; }
+.memory-display { white-space: pre-wrap; line-height: 1.4; }
+.voice-controls,.model-controls,.memory-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.5rem;}
